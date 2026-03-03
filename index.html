@@ -7,6 +7,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-WM5MPDK7WE');
     </script>
 
@@ -85,7 +86,6 @@
             content: '';
             position: absolute;
             inset: 0;
-            /* Added very subtle purple hint to the video overlay */
             background: radial-gradient(circle at center, transparent 0%, rgba(2, 2, 2, 0.8) 70%, #020202 100%), 
                         linear-gradient(to bottom, transparent, rgba(30, 16, 48, 0.2));
         }
@@ -108,7 +108,7 @@
 
         .btn-primary {
             background: #D4AF37;
-            color: #000; /* Black text on gold for better contrast */
+            color: #000; 
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
             transition: all 0.3s ease;
         }
@@ -124,7 +124,6 @@
             border-color: rgba(212, 175, 55, 0.3);
         }
 
-        /* Gold gradient text */
         .text-gold-gradient {
             background: linear-gradient(to right, #D4AF37, #F5E6AB, #D4AF37);
             -webkit-background-clip: text;
@@ -164,7 +163,6 @@
 
     <!-- Hero -->
     <header class="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
-        <!-- Added a very subtle purple base glow to the hero background -->
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(30,16,48,0.4)_0%,transparent_70%)]"></div>
         
         <div class="absolute inset-0 z-0 video-container opacity-40">
@@ -195,7 +193,6 @@
 
     <!-- Sanctuary Mission -->
     <section id="sanctuary" class="py-32 container mx-auto px-6 relative">
-        <!-- Subtle purple glow behind mission -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-purpleSubtle/30 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div class="max-w-4xl mx-auto text-center reveal relative">
@@ -342,7 +339,6 @@
     <!-- Exclusivo Store Section -->
     <section id="premium-product" class="py-32 container mx-auto px-6">
         <div class="glass p-8 md:p-20 rounded-[3rem] md:rounded-[5rem] reveal flex flex-col lg:flex-row items-center gap-12 lg:gap-24 overflow-hidden relative border-t border-t-brand-accent/20">
-            <!-- Subtle purple corner glow -->
             <div class="absolute -top-20 -right-20 w-80 h-80 bg-brand-purpleSubtle/40 blur-[100px] rounded-full"></div>
             
             <div class="flex-1 space-y-10 text-center lg:text-left z-10">
@@ -414,7 +410,6 @@
 
     <!-- Footer -->
     <footer class="py-20 bg-black text-center relative overflow-hidden">
-        <!-- Subtle purple glow in footer -->
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-40 bg-brand-purpleSubtle/20 blur-[80px]"></div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -426,7 +421,6 @@
                     <span class="text-[9px] font-bold uppercase tracking-widest text-brand-accent">Sanctuary V1</span>
                 </div>
                 <div class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                    <!-- Removed grayscale from V2 logo -->
                     <img src="https://i.imgur.com/7BiW2OG.gif" class="w-10 h-10 rounded-full border border-brand-accent/20" alt="V2">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-brand-accent">Sanctuary V2</span>
                 </div>
