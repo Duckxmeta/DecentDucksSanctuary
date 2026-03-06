@@ -33,10 +33,8 @@
                         brand: {
                             base: '#020202',
                             card: 'rgba(20, 20, 20, 0.6)',
-                            // Gold accent from logo
                             accent: '#D4AF37', 
                             accentLight: '#F5E6AB',
-                            // Very subtle purple for depth
                             purpleSubtle: '#1e1030', 
                         }
                     },
@@ -152,6 +150,7 @@
     <!-- Full Screen Menu -->
     <div id="menu-overlay" class="flex items-center justify-center">
         <nav class="text-center space-y-8">
+            <a href="#our-story" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Our Story</a>
             <a href="#sanctuary" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Sanctuary</a>
             <a href="#support" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Support</a>
             <a href="#ecosystem" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Arcade</a>
@@ -191,6 +190,45 @@
         </div>
     </header>
 
+    <!-- Our Story Section -->
+    <section id="our-story" class="py-32 container mx-auto px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-purpleSubtle/20 blur-[120px] rounded-full -z-10 translate-x-1/2"></div>
+        
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter italic uppercase leading-[0.9]">
+                        Our <span class="text-brand-accent">Story.</span>
+                    </h2>
+                    <div class="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+                        <p>
+                            It all began with a single lucky duck named <span class="text-white font-medium">Jasmine</span>. What started as an individual act of rescue quickly grew into a vision for something much larger: a dedicated sanctuary where every bird could live a life free of stress and full of care.
+                        </p>
+                        <p>
+                            We realized that domestic ducks often fall through the cracks of traditional rescue systems. Decent Ducks was born from the idea that community and passion could bridge that gap. 
+                        </p>
+                        <p>
+                            Today, we are pushing this project from a shared dream into a physical reality. Your support isn't just a donation; it's a brick in the foundation of a permanent home for our flock. We are building a place where "Decent" means the highest quality of life possible.
+                        </p>
+                    </div>
+                    <div class="pt-4">
+                        <a href="#support" class="inline-flex items-center gap-4 text-brand-accent font-bold uppercase tracking-widest text-xs group">
+                            Help us build the dream <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-brand-accent/10 blur-xl rounded-3xl"></div>
+                    <img src="https://i.imgur.com/XIzfnh5.jpeg" class="relative rounded-[2.5rem] w-full aspect-[4/5] object-cover shadow-2xl border border-white/5" alt="Baby Jasmine">
+                    <div class="absolute bottom-6 right-6 glass px-6 py-3 rounded-2xl">
+                        <!-- Updated from Est. 2024 to Est. 2023 -->
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-brand-accent">Est. 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Sanctuary Mission -->
     <section id="sanctuary" class="py-32 container mx-auto px-6 relative">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-purpleSubtle/30 blur-[120px] rounded-full pointer-events-none"></div>
@@ -200,10 +238,10 @@
             <p class="text-gray-400 text-xl mb-12 leading-relaxed font-light">
                 Providing a quiet, high-quality home for our flock. We prioritize stress-free environments and dedicated daily care, funded entirely by bird lovers worldwide.
             </p>
-            <div class="flex flex-wrap justify-center gap-6 items-center">
-                <a href="https://www.paypal.com/donate/?hosted_button_id=RG9T939ERXZB8" target="_blank" class="btn-primary px-8 py-3 rounded-xl font-bold uppercase text-xs flex items-center gap-3">
-                    <img src="https://i.imgur.com/2Nyk3t7.png" class="w-6 h-6 rounded-full border border-black/20" alt="Decent Ducks Logo">
-                    Support with a Donation
+            <div class="flex justify-center items-center">
+                <a href="https://gofund.me/f8b68a6d" target="_blank" class="btn-primary px-12 py-5 rounded-xl font-bold uppercase text-xs flex items-center gap-3">
+                    <img src="https://i.imgur.com/2Nyk3t7.png" class="w-6 h-6 rounded-full border border-white/20" alt="Decent Ducks Logo">
+                    Support our GoFundMe
                 </a>
             </div>
         </div>
@@ -216,14 +254,14 @@
                 <div class="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center text-3xl text-brand-accent">🌿</div>
                 <h3 class="text-3xl font-black uppercase italic tracking-tighter">Direct Support</h3>
                 <p class="text-gray-400 leading-relaxed font-light">
-                    Your adoptions and contributions directly fund feed, clean water systems, and safe housing for our rescued flock.
+                    Your contributions directly fund feed, clean water systems, and safe housing for our rescued flock as we build toward reality.
                 </p>
             </div>
             <div class="glass p-12 rounded-[3rem] space-y-6 hover:bg-white/5 transition-colors border-l-4 border-l-brand-accent/20">
                 <div class="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center text-3xl text-brand-accent">🦆</div>
                 <h3 class="text-3xl font-black uppercase italic tracking-tighter">Community Driven</h3>
                 <p class="text-gray-400 leading-relaxed font-light">
-                    We are a community-powered rescue. Every purchase from our shop or direct gift goes toward expanding the sanctuary's capacity.
+                    We are a community-powered rescue. Every gift goes toward expanding the sanctuary's capacity and making the dream a reality.
                 </p>
             </div>
         </div>
@@ -234,12 +272,23 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-5xl font-black uppercase italic tracking-tighter mb-4">Support the Sanctuary</h2>
-                <p class="text-gray-400 max-w-xl mx-auto font-light">Help us maintain the flock. Your contributions provide food, premium care, and sanctuary expansion.</p>
+                <p class="text-gray-400 max-w-xl mx-auto font-light">Help us build the flock's future. Choose your preferred way to help fund initial construction and daily care.</p>
             </div>
 
             <div class="reveal">
-                <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-                    <!-- PayPal -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+                    <a href="https://gofund.me/f8b68a6d" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
+                        <div class="flex items-center gap-6">
+                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-hand-holding-heart text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base uppercase">GoFundMe</h4>
+                                <p class="text-[10px] opacity-40 tracking-widest uppercase">Push to Reality</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-brand-accent opacity-20 group-hover:opacity-100 transition-all"></i>
+                    </a>
                     <a href="https://www.paypal.com/donate/?hosted_button_id=RG9T939ERXZB8" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
                         <div class="flex items-center gap-6">
                             <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
@@ -252,7 +301,6 @@
                         </div>
                         <i class="fa-solid fa-arrow-right text-brand-accent opacity-20 group-hover:opacity-100 transition-all"></i>
                     </a>
-                    <!-- Buy Me a Coffee -->
                     <a href="https://www.buymeacoffee.com/justduckit" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
                         <div class="flex items-center gap-6">
                             <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
@@ -260,12 +308,11 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-base uppercase">Coffee</h4>
-                                <p class="text-[10px] opacity-40 tracking-widest uppercase">Support the Creator</p>
+                                <p class="text-[10px] opacity-40 tracking-widest uppercase">Support Creator</p>
                             </div>
                         </div>
                         <i class="fa-solid fa-arrow-right text-brand-accent opacity-20 group-hover:opacity-100 transition-all"></i>
                     </a>
-                    <!-- CashApp -->
                     <a href="https://cash.app/$Duckxmeta" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
                         <div class="flex items-center gap-6">
                             <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
