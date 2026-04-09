@@ -7,19 +7,16 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-WM5MPDK7WE');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decent Ducks | Sanctuary Mission</title>
+    <title>Decent Ducks | Official Animal Sanctuary</title>
     
-    <!-- SEO & Social -->
-    <meta property="og:title" content="Decent Ducks - Sanctuary Mission">
-    <meta property="og:description" content="A sanctuary for our flock. Simple, quiet, and community powered. Support the birds today.">
+    <meta property="og:title" content="Decent Ducks Sanctuary Mission">
+    <meta property="og:description" content="Building stress-free sanctuaries for ducks and animals alike. Every creature deserves a safe spot to chill & thrive.">
     <meta property="og:image" content="https://i.imgur.com/26hkHfq.jpeg">
-    <meta name="twitter:card" content="summary_large_image">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -61,8 +58,8 @@
         }
 
         .hero-text {
-            font-size: clamp(3rem, 10.5vw, 8rem);
-            line-height: 0.95;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 1.1;
             letter-spacing: -0.05em;
         }
 
@@ -77,15 +74,36 @@
             transform: translateY(0);
         }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
         .video-container::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(2, 2, 2, 0.8) 70%, #020202 100%), 
-                        linear-gradient(to bottom, transparent, rgba(30, 16, 48, 0.2));
+            background: radial-gradient(circle at center, transparent 0%, rgba(2, 2, 2, 0.8) 70%, #020202 100%);
+        }
+
+        .btn-primary {
+            background: #D4AF37;
+            color: #000; 
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to right, #D4AF37, #F5E6AB, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animal-card img {
+            transition: transform 0.5s ease;
+        }
+        .animal-card:hover img {
+            transform: scale(1.05);
         }
 
         #menu-overlay {
@@ -99,394 +117,330 @@
             transition: all 0.4s ease;
         }
 
-        #menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .btn-primary {
-            background: #D4AF37;
-            color: #000; 
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-            background: #F5E6AB;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-
-        .text-gold-gradient {
-            background: linear-gradient(to right, #D4AF37, #F5E6AB, #D4AF37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        #menu-overlay.active { opacity: 1; visibility: visible; }
     </style>
 </head>
 <body class="font-sans">
 
-    <!-- Header / Nav -->
+    <!-- Header -->
     <nav id="navbar" class="fixed top-0 w-full z-[200] px-6 py-5 flex justify-between items-center transition-all duration-300">
         <a href="#" class="flex items-center gap-3 group">
-            <div class="relative">
-                <div class="absolute inset-0 bg-brand-accent blur-lg opacity-0 group-hover:opacity-40 transition-opacity rounded-full"></div>
-                <img src="https://i.imgur.com/2Nyk3t7.png" class="relative w-10 h-10 rounded-full border border-white/20" alt="Ducks">
-            </div>
-            <span class="font-black tracking-tighter text-xl uppercase italic text-white group-hover:text-brand-accent transition-colors">Decent Ducks</span>
+            <img src="https://i.imgur.com/2Nyk3t7.png" class="w-10 h-10 rounded-full border border-white/20" alt="Logo">
+            <span class="font-black tracking-tighter text-xl uppercase italic text-white">Decent Ducks</span>
         </a>
-        <button id="menu-toggle" class="w-10 h-10 flex flex-col justify-center items-end gap-1.5 z-[210]">
-            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
-            <span class="block w-5 h-0.5 bg-brand-accent transition-all duration-300"></span>
-            <span class="block w-7 h-0.5 bg-white transition-all duration-300"></span>
+        <div class="hidden md:flex gap-8 items-center text-[10px] font-bold uppercase tracking-widest">
+            <a href="#mission" class="hover:text-brand-accent transition-colors">The Cause</a>
+            <a href="#residents" class="hover:text-brand-accent transition-colors">Meet the Animals</a>
+            <a href="#support" class="hover:text-brand-accent transition-colors">Support</a>
+            <a href="https://adoptaduck.org" target="_blank" class="btn-primary px-5 py-2 rounded-full">Virtual Adoption</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden w-10 h-10 flex flex-col justify-center items-end gap-1.5 z-[210]">
+            <span class="block w-8 h-0.5 bg-white"></span>
+            <span class="block w-5 h-0.5 bg-brand-accent"></span>
         </button>
     </nav>
 
-    <!-- Full Screen Menu -->
+    <!-- Mobile Menu -->
     <div id="menu-overlay" class="flex items-center justify-center">
         <nav class="text-center space-y-8">
-            <a href="#our-story" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Our Story</a>
-            <a href="#sanctuary" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Sanctuary</a>
-            <a href="#support" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Support</a>
-            <a href="#ecosystem" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Arcade</a>
-            <a href="#essentials" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Essentials</a>
-            <a href="#premium-product" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Exclusivo</a>
-            <a href="#shop" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Shop</a>
-            <a href="#community" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Community</a>
+            <a href="#mission" class="menu-link block text-4xl font-black uppercase tracking-tighter hover:text-brand-accent">The Cause</a>
+            <a href="#residents" class="menu-link block text-4xl font-black uppercase tracking-tighter hover:text-brand-accent">Residents</a>
+            <a href="#support" class="menu-link block text-4xl font-black uppercase tracking-tighter hover:text-brand-accent">Support</a>
+            <a href="https://adoptaduck.org" target="_blank" class="menu-link block text-2xl font-black uppercase tracking-tighter text-brand-accent">Virtual Adoption</a>
         </nav>
     </div>
 
     <!-- Hero -->
     <header class="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(30,16,48,0.4)_0%,transparent_70%)]"></div>
-        
         <div class="absolute inset-0 z-0 video-container opacity-40">
             <video autoplay loop muted playsinline class="w-full h-full object-cover">
                 <source src="https://i.imgur.com/5yRqKas.mp4" type="video/mp4">
             </video>
         </div>
         
-        <div class="relative z-10 reveal w-full max-w-7xl mx-auto">
-            <h1 class="font-black mb-8 text-white flex flex-col items-center">
-                <span class="hero-text text-gold-gradient uppercase italic px-2">Decent Ducks</span>
-                <span class="text-lg md:text-3xl mt-6 opacity-80 font-medium tracking-[0.2em] uppercase text-white">Sanctuary</span>
+        <div class="relative z-10 reveal max-w-4xl mx-auto">
+            <h1 class="font-black mb-8 text-white uppercase italic hero-text">
+                <span class="text-gold-gradient">Stress-Free</span> Sanctuaries.
             </h1>
-            <div class="flex flex-wrap gap-4 justify-center mt-8">
-                <a href="#support" class="btn-primary px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest">
-                    Support the Mission
-                </a>
-                <a href="#community" class="glass text-white px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest hover:bg-white hover:text-black transition-all">
-                    Follow the Journey
-                </a>
+            <p class="text-lg md:text-2xl opacity-80 font-medium tracking-wide mb-10 max-w-2xl mx-auto">
+                Every creature deserves a safe spot to chill & thrive. We build peaceful homes for ducks and animals alike. Join the cause.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#support" class="btn-primary px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest">Join the Cause</a>
+                <a href="#residents" class="glass text-white px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest hover:bg-white hover:text-black transition-all">Meet the Residents</a>
             </div>
-        </div>
-
-        <div class="absolute bottom-10 animate-bounce opacity-30">
-            <i class="fa-solid fa-chevron-down text-2xl text-brand-accent"></i>
         </div>
     </header>
 
-    <!-- Our Story Section -->
-    <section id="our-story" class="py-32 container mx-auto px-6 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-purpleSubtle/20 blur-[120px] rounded-full -z-10 translate-x-1/2"></div>
-        
+    <!-- Mission Context -->
+    <section id="mission" class="py-32 container mx-auto px-6 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-purpleSubtle/30 blur-[120px] rounded-full -z-10"></div>
         <div class="max-w-5xl mx-auto reveal">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-8">
-                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter italic uppercase leading-[0.9]">
-                        Our <span class="text-brand-accent">Story.</span>
-                    </h2>
-                    <div class="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
-                        <p>
-                            It all began with a single lucky duck named <span class="text-white font-medium">Jasmine</span>. What started as an individual act of rescue quickly grew into a vision for something much larger: a dedicated sanctuary where every bird could live a life free of stress and full of care.
-                        </p>
-                        <p>
-                            We realized that domestic ducks often fall through the cracks of traditional rescue systems. Decent Ducks was born from the idea that community and passion could bridge that gap. 
-                        </p>
-                        <p>
-                            Today, we are pushing this project from a shared dream into a physical reality. Your support helps us build the foundation of a permanent home for our flock. We are building a place where "Decent" means the highest quality of life possible.
-                        </p>
-                    </div>
-                    <div class="pt-4">
-                        <a href="#support" class="inline-flex items-center gap-4 text-brand-accent font-bold uppercase tracking-widest text-xs group">
-                            Help us build the dream <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
-                        </a>
-                    </div>
-                </div>
                 <div class="relative">
                     <div class="absolute -inset-4 bg-brand-accent/10 blur-xl rounded-3xl"></div>
-                    <img src="https://i.imgur.com/XIzfnh5.jpeg" class="relative rounded-[2.5rem] w-full aspect-[4/5] object-cover shadow-2xl border border-white/5" alt="Baby Jasmine">
+                    <img src="https://i.imgur.com/XIzfnh5.jpeg" class="relative rounded-[2.5rem] w-full aspect-[4/5] object-cover shadow-2xl border border-white/5" alt="Jasmine - The Inspiration">
                     <div class="absolute bottom-6 right-6 glass px-6 py-3 rounded-2xl">
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-brand-accent">Est. 2023</p>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-brand-accent">Icon Since 2023</p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <span class="text-brand-accent font-bold uppercase tracking-[0.3em] text-[10px]">The Decent Ducks Journey</span>
+                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter italic uppercase leading-[0.9]">More Than <span class="text-brand-accent">Just Ducks.</span></h2>
+                    <div class="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
+                        <p>
+                            It started with a single lucky duck named <span class="text-white font-medium">Jasmine</span>. She was the first life we gave a second chance, becoming the icon of our TikTok and YouTube community and the catalyst for a much bigger dream.
+                        </p>
+                        <p>
+                            What began as one rescue has transformed into a mission to build permanent, high-quality homes for animals that have been neglected or abandoned. We prioritize stress-free environments where every soul—feathered or fur—has the space to truly chill and thrive.
+                        </p>
+                        <p class="text-white italic text-base">
+                            "Every creature deserves a safe spot to chill & thrive."
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sanctuary Mission -->
-    <section id="sanctuary" class="py-32 container mx-auto px-6 relative">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-purpleSubtle/30 blur-[120px] rounded-full pointer-events-none"></div>
-        
-        <div class="max-w-4xl mx-auto text-center reveal relative">
-            <h2 class="text-5xl md:text-7xl font-black mb-10 tracking-tighter italic uppercase">A Place of <span class="text-brand-accent">Peace.</span></h2>
-            <p class="text-gray-400 text-xl mb-12 leading-relaxed font-light">
-                Providing a quiet, high-quality home for our flock. We prioritize stress-free environments and dedicated daily care, funded entirely by bird lovers worldwide.
-            </p>
-            <div class="flex justify-center items-center">
-                <!-- Replaced GoFundMe with Dax's Essentials (Amazon Storefront) -->
-                <a href="https://amzn.to/4sCtk0B" target="_blank" class="btn-primary px-12 py-5 rounded-xl font-bold uppercase text-xs flex items-center gap-3">
-                    <i class="fa-brands fa-amazon text-lg"></i>
-                    Shop Dax's Essentials
+    <!-- Animals Section -->
+    <section id="residents" class="py-24 bg-[#050505]/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-5xl font-black uppercase italic tracking-tighter mb-4">Meet the <span class="text-brand-accent">Residents</span></h2>
+                <p class="text-gray-400 font-light max-w-2xl mx-auto">From foundation ducks to marina miracles, these are the lives you help sustain.</p>
+            </div>
+
+            <!-- The Flock -->
+            <h3 class="text-2xl font-black uppercase italic tracking-widest text-center mb-12 text-white/50">The Flock</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-32 reveal">
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/zlVWXNd.jpeg" class="w-full h-full object-cover" alt="Bandit">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-3xl font-black uppercase italic text-gold-gradient">Bandit</h4>
+                            <p class="text-xs font-bold tracking-widest text-white/60 uppercase">Silver Appleyard</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-gray-400 text-base leading-relaxed">Community adopted and thriving. Bandit is a Silver Appleyard who enjoys the calm sanctuary lifestyle we provide.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/byq5Xgf.jpeg" class="w-full h-full object-cover" style="object-position: 50% 80%;" alt="Moxie">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-3xl font-black uppercase italic text-gold-gradient">Moxie</h4>
+                            <p class="text-xs font-bold tracking-widest text-white/60 uppercase">Swedish Blue</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-gray-400 text-base leading-relaxed">Virtually adopted by our community. Moxie is a Swedish Blue known for her spirited personality and love for the sanctuary family.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feline Friends -->
+            <h3 class="text-2xl font-black uppercase italic tracking-widest text-center mb-12 text-white/50">Feline Friends</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-32 reveal">
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.imgur.com/sTuEltR.jpeg" class="w-full h-full object-cover" alt="Leela">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-brand-accent">Leela</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">Abandoned in a cage during a storm, Leela was rescued as a kitten when the local shelter was at capacity. Now safe and loved.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.imgur.com/kdtJL1k.jpeg" class="w-full h-full object-cover" style="object-position: 50% 20%;" alt="Whiskey">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-brand-accent">Whiskey</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">Born on a boat and tossed onto a marina dock. We found him alone and raised him to be our Mighty Mouse Hunter.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.imgur.com/5o73835.jpeg" class="w-full h-full object-cover" alt="Pepper">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-brand-accent">Pepper</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">Originally arrived for a short-term visit, Pepper decided the sanctuary was home and is now a permanent resident.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Original Pack -->
+            <h3 class="text-2xl font-black uppercase italic tracking-widest text-center mb-12 text-white/50">The Original Pack</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-32 reveal">
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.imgur.com/PlvqMmu.jpeg" class="w-full h-full object-cover" alt="Jade">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-brand-accent">Jade</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">The loyal heart of our pack. Jade was left behind by a local visitor and found her true family at the sanctuary.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.imgur.com/WstDXJo.jpeg" class="w-full h-full object-cover" style="object-position: 50% 65%;" alt="River">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-brand-accent">River</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">River was bought to be a "truck dog," but preferred a peaceful life in the sanctuary instead. He's been here ever since.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.imgur.com/SjOpu29.jpeg" class="w-full h-full object-cover" alt="Sweet Pea">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-brand-accent">Sweet Pea</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">After her owner passed away, we grew an immediate attachment to Sweet Pea and knew she belonged here for good.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Marina Miracles -->
+            <h3 class="text-2xl font-black uppercase italic tracking-widest text-center mb-12 text-white/50">The Marina Miracles</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16 reveal">
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/RKiUSao.jpeg" class="w-full h-full object-cover" alt="Cassidy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left text-white">
+                            <h4 class="text-2xl font-black uppercase italic">Cassidy</h4>
+                            <p class="text-[8px] font-bold tracking-[0.2em] opacity-60 uppercase mt-1">Mother</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">Brave mother of the dogs dumped at the marina in March. Now resting safely in our care.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/O2LXnKm.jpeg" class="w-full h-full object-cover" style="object-position: 50% 65%;" alt="Echo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left text-white">
+                            <h4 class="text-2xl font-black uppercase italic">Echo</h4>
+                            <p class="text-[8px] font-bold tracking-[0.2em] opacity-60 uppercase mt-1">7 Months</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">Cassidy's eldest son. Rescued at 6 months old; learning that humans can be trusted and kind.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/4KEGYnS.jpeg" class="w-full h-full object-cover" alt="Cracker">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-gold-gradient">Cracker</h4>
+                            <p class="text-[8px] font-bold tracking-[0.2em] text-white/60 uppercase mt-1">Puppy</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">The white puppy found alongside Cassidy at just one week old. Growing stronger every day.</p>
+                    </div>
+                </div>
+                <div class="animal-card glass rounded-[2.5rem] overflow-hidden group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/YTXPR4s.jpeg" class="w-full h-full object-cover" alt="Coffee">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-8 text-left">
+                            <h4 class="text-2xl font-black uppercase italic text-gold-gradient">Coffee</h4>
+                            <p class="text-[8px] font-bold tracking-[0.2em] text-white/60 uppercase mt-1">Puppy</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 text-base leading-relaxed">The runt of the marina rescue. A tiny black and tan miracle now thriving under sanctuary care.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gentle Giant -->
+            <h3 class="text-2xl font-black uppercase italic tracking-widest text-center mb-12 text-white/50">The Gentle Giant</h3>
+            <div class="max-w-4xl mx-auto mb-32 reveal">
+                <div class="animal-card glass rounded-[3rem] overflow-hidden group flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-1/2 h-80 overflow-hidden relative">
+                        <img src="https://i.imgur.com/6T3KCyf.jpeg" class="w-full h-full object-cover" alt="Otis">
+                    </div>
+                    <div class="p-12 md:w-1/2">
+                        <h4 class="text-4xl font-black uppercase italic text-brand-accent mb-4">Otis</h4>
+                        <p class="text-gray-400 text-base leading-relaxed mb-4">
+                            A retired show horse put out to pasture. When we bought the property, Otis came with it. After a year of patience, he finally trusts us enough to ask for snacks—though he still keeps a bit of his wild spirit.
+                        </p>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-white/30 border border-white/10 px-3 py-1 rounded-full">Permanent Resident</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Updates Note -->
+            <div class="max-w-3xl mx-auto text-center reveal border-t border-white/5 pt-12">
+                <p class="text-white/60 text-lg italic leading-relaxed">
+                    Life at the sanctuary moves fast. We recently welcomed some unexpected news—new puppies may be joining the <span class="text-white font-medium">family</span> soon! River has since been fixed, and both Echo and Cassidy are scheduled for the same as soon as it's safe for them to do so. We are committed to responsible care for every life here.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support/Connection Section -->
+    <section id="support" class="py-32">
+        <div class="container mx-auto px-6 text-center reveal">
+            <h2 class="text-5xl font-black uppercase italic tracking-tighter mb-12">Join the <span class="text-brand-accent">Cause</span></h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <a href="https://adoptaduck.org" target="_blank" class="glass p-12 rounded-[3rem] group hover:border-brand-accent/40 transition-all">
+                    <div class="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🐾</div>
+                    <h3 class="text-3xl font-black italic uppercase">Virtual Adoption</h3>
+                    <p class="text-gray-400 mt-4 mb-8 font-light leading-relaxed">Directly sponsor our residents through our official virtual adoption platform. Featuring our ducks today, with dogs arriving soon.</p>
+                    <span class="text-brand-accent font-bold uppercase text-[10px] tracking-widest border-b border-brand-accent/30 pb-1 group-hover:px-4 transition-all">Connect via AdoptADuck.org &rarr;</span>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Explainer -->
-    <section class="py-32 container mx-auto px-6 bg-[#050505]/50">
-        <div class="grid md:grid-cols-2 gap-8 reveal">
-            <div class="glass p-12 rounded-[3rem] space-y-6 hover:bg-white/5 transition-colors border-l-4 border-l-brand-accent/20">
-                <div class="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center text-3xl text-brand-accent">🌿</div>
-                <h3 class="text-3xl font-black uppercase italic tracking-tighter">Direct Support</h3>
-                <p class="text-gray-400 leading-relaxed font-light">
-                    Your support through our storefront directly funds feed, clean water systems, and safe housing for our rescued flock.
-                </p>
-            </div>
-            <div class="glass p-12 rounded-[3rem] space-y-6 hover:bg-white/5 transition-colors border-l-4 border-l-brand-accent/20">
-                <div class="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center text-3xl text-brand-accent">🦆</div>
-                <h3 class="text-3xl font-black uppercase italic tracking-tighter">Community Driven</h3>
-                <p class="text-gray-400 leading-relaxed font-light">
-                    We are a community-powered rescue. Every gift goes toward expanding the sanctuary's capacity and making the dream a reality.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Section -->
-    <section id="support" class="py-32 bg-[#050505]">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-5xl font-black uppercase italic tracking-tighter mb-4">Support the Sanctuary</h2>
-                <p class="text-gray-400 max-w-xl mx-auto font-light">Help us build the flock's future. Choose your preferred way to help fund initial construction and daily care.</p>
-            </div>
-
-            <div class="reveal">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                    <!-- Replaced GoFundMe Card with Dax's Essentials -->
-                    <a href="https://amzn.to/4sCtk0B" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
-                        <div class="flex items-center gap-6">
-                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
-                                <i class="fa-brands fa-amazon text-2xl text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base uppercase">Essentials</h4>
-                                <p class="text-[10px] opacity-40 tracking-widest uppercase">Amazon Storefront</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-brand-accent opacity-20 group-hover:opacity-100 transition-all"></i>
-                    </a>
-                    <!-- PayPal -->
-                    <a href="https://www.paypal.com/donate/?hosted_button_id=RG9T939ERXZB8" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
-                        <div class="flex items-center gap-6">
-                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
-                                <i class="fa-brands fa-paypal text-2xl text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base uppercase">PayPal</h4>
-                                <p class="text-[10px] opacity-40 tracking-widest uppercase">Direct Donation</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-brand-accent opacity-20 group-hover:opacity-100 transition-all"></i>
-                    </a>
-                    <!-- CashApp -->
-                    <a href="https://cash.app/$Duckxmeta" target="_blank" class="glass p-8 rounded-[2rem] flex items-center justify-between group hover:bg-white/5 transition-all">
-                        <div class="flex items-center gap-6">
-                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
-                                <i class="fa-solid fa-dollar-sign text-2xl text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base uppercase">CashApp</h4>
-                                <p class="text-[10px] opacity-40 tracking-widest uppercase">$DUCKXMETA</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-brand-accent opacity-20 group-hover:opacity-100 transition-all"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Digital Ecosystem / Arcade -->
-    <section id="ecosystem" class="py-32 container mx-auto px-6">
-        <div class="text-center mb-16 reveal">
-            <h2 class="text-5xl font-black uppercase italic tracking-tighter">The Arcade</h2>
-            <p class="opacity-40 text-sm mt-2">Free to play games for the community.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal max-w-6xl mx-auto">
-            <!-- Duck Joyride -->
-            <div class="glass p-5 rounded-[2.5rem] card-hover transition-all group border-b-2 border-b-transparent hover:border-b-brand-accent/50">
-                <div class="overflow-hidden rounded-[2rem] relative aspect-video">
-                    <img src="https://i.imgur.com/JuDDwQ7.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-brand-accent/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fa-solid fa-play text-4xl text-brand-accent"></i>
+                <div class="glass p-12 rounded-[3rem] border-t-4 border-t-brand-accent">
+                    <div class="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🌿</div>
+                    <h3 class="text-3xl font-black italic uppercase">Sanctuary Fund</h3>
+                    <p class="text-gray-400 mt-4 mb-8 font-light">Your gifts provide feed, critical medical care, and the stress-free housing that our rescued residents deserve.</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="https://www.paypal.com/donate/?hosted_button_id=RG9T939ERXZB8" target="_blank" class="btn-primary py-3 rounded-xl font-black uppercase text-[10px]">Donate via PayPal</a>
+                        <a href="https://cash.app/$Duckxmeta" target="_blank" class="glass py-3 rounded-xl font-black uppercase text-[10px] hover:bg-white/10 transition-all">Support via CashApp: $DUCKXMETA</a>
                     </div>
                 </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold italic uppercase tracking-tighter">Duck Joyride</h3>
-                    <p class="text-sm opacity-50 mt-2 mb-6">Our flagship arcade side-scroller. High scores and chill vibes.</p>
-                    <a href="https://duckxmeta.github.io/DuckJoyrideV2/" target="_blank" class="text-xs font-black uppercase tracking-widest text-brand-accent hover:text-white transition-colors">Play Now &rarr;</a>
-                </div>
             </div>
-            <!-- Ground Rangers -->
-            <div class="glass p-5 rounded-[2.5rem] card-hover transition-all group border-b-2 border-b-transparent hover:border-b-brand-accent/50">
-                <div class="overflow-hidden rounded-[2rem] relative aspect-video">
-                    <img src="https://i.imgur.com/braneXY.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold italic uppercase tracking-tighter">Ground Rangers</h3>
-                    <p class="text-sm opacity-50 mt-2 mb-6">A legendary arcade classic developed by @Monkeybizio.</p>
-                    <a href="https://decentducks.netlify.app/" target="_blank" class="text-xs font-black uppercase tracking-widest text-brand-accent hover:text-white transition-colors">Play Now &rarr;</a>
-                </div>
-            </div>
-            <!-- Chess -->
-            <div class="glass p-5 rounded-[2.5rem] card-hover transition-all group border-b-2 border-b-transparent hover:border-b-brand-accent/50">
-                <div class="overflow-hidden rounded-[2rem] relative aspect-video">
-                    <img src="https://i.imgur.com/hOWQbzH.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold italic uppercase tracking-tighter">Decent Chess</h3>
-                    <p class="text-sm opacity-50 mt-2 mb-6">Classic strategy reimagined with sanctuary aesthetic.</p>
-                    <a href="https://duckxmeta.github.io/Decent-Chess/" target="_blank" class="text-xs font-black uppercase tracking-widest text-brand-accent hover:text-white transition-colors">Play Now &rarr;</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-16 flex justify-center reveal">
-            <a href="https://duckxmeta.github.io/Ducklopedia/" target="_blank" class="glass px-10 py-4 rounded-2xl font-black uppercase text-xs hover:border-brand-accent/60 flex items-center gap-3 transition-all tracking-[0.2em] border-white/10 group">
-                <i class="fa-solid fa-book text-brand-accent text-lg group-hover:scale-110 transition-transform"></i>
-                Browse Ducklopedia
-            </a>
-        </div>
-    </section>
-
-    <!-- Dax's Essentials (Amazon Storefront) -->
-    <section id="essentials" class="py-16 container mx-auto px-6">
-        <div class="glass p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] reveal flex flex-col md:flex-row items-center gap-12 overflow-hidden relative border border-brand-accent/10">
-            <div class="flex-1 w-full max-w-md relative">
-                <div class="absolute -inset-10 bg-brand-accent/5 blur-[80px] rounded-full"></div>
-                <img src="https://i.imgur.com/JTU40x3.jpeg" class="relative rounded-[2.5rem] shadow-2xl transition-transform duration-1000 hover:scale-105" alt="Dax's Essentials">
-            </div>
-            <div class="flex-1 space-y-6 text-center md:text-left">
-                <div class="inline-block px-4 py-1 bg-brand-accent/20 rounded-full text-brand-accent text-[10px] font-bold uppercase tracking-widest">
-                    Amazon Storefront
-                </div>
-                <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-none">Dax's <br><span class="text-brand-accent">Essentials</span></h2>
-                <p class="text-gray-400 text-lg font-light leading-relaxed max-w-xl mx-auto md:mx-0">
-                    Curated sanctuary supplies and bird essentials. Everything we use to keep the flock happy and healthy, hand-picked for our community birds.
-                </p>
-                <div class="pt-4">
-                    <a href="https://amzn.to/4sCtk0B" target="_blank" class="btn-primary inline-flex items-center gap-4 px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-[0.2em] transition-all">
-                        SHOP ON AMAZON <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Exclusivo Store Section -->
-    <section id="premium-product" class="py-32 container mx-auto px-6">
-        <div class="glass p-8 md:p-20 rounded-[3rem] md:rounded-[5rem] reveal flex flex-col lg:flex-row items-center gap-12 lg:gap-24 overflow-hidden relative border-t border-t-brand-accent/20">
-            <div class="absolute -top-20 -right-20 w-80 h-80 bg-brand-purpleSubtle/40 blur-[100px] rounded-full"></div>
-            
-            <div class="flex-1 space-y-10 text-center lg:text-left z-10">
-                <div class="inline-block px-4 py-1 bg-brand-accent/10 border border-brand-accent/30 rounded-full text-brand-accent text-[10px] font-bold uppercase tracking-widest">
-                    Featured Items
-                </div>
-                <h2 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85]">The <br><span class="text-gold-gradient">Exclusivo Store</span></h2>
-                <p class="text-gray-400 text-xl font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Find exclusive items and premium goods sourced directly from the sanctuary. Every purchase supports our mission and the continued care of the flock.
-                </p>
-                <div class="pt-4">
-                    <a href="https://app.exclusivo.one/invite/store/duck/E6dU-3Md7BuEoCVF0etEG1DXROmJtqRq" target="_blank" class="btn-primary inline-flex items-center gap-6 px-12 py-5 rounded-full font-bold uppercase text-[11px] tracking-[0.2em] transition-all">
-                        VIEW STORE <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="flex-1 w-full max-w-md relative z-10">
-                <div class="absolute -inset-10 bg-brand-accent/5 blur-[100px] rounded-full"></div>
-                <img src="https://i.imgur.com/5VBkeme.jpeg" class="relative rounded-[3rem] shadow-2xl transition-transform duration-1000 hover:scale-105 border border-white/5" alt="Decent Ducks Exclusivo Items">
-            </div>
-        </div>
-    </section>
-
-    <!-- Wardrobe / Merch -->
-    <section id="shop" class="py-32 bg-white text-black rounded-t-[4rem]">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-16 text-center md:text-left reveal">
-                <div>
-                    <h2 class="text-5xl font-black italic uppercase tracking-tighter">The Wardrobe</h2>
-                    <p class="opacity-50 mt-2 font-medium">Official apparel. All proceeds go to sanctuary care.</p>
-                </div>
-                <div class="mt-8 md:mt-0">
-                    <a href="https://justduckit-merch.printful.me/" target="_blank" class="bg-black text-white px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest transition-transform hover:scale-105 shadow-xl border border-brand-accent/20">Shop Collection</a>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
-                <img src="https://i.imgur.com/LsNNUM0.jpeg" class="rounded-3xl shadow-xl w-full border border-black/5">
-                <img src="https://i.imgur.com/V1BtMrW.jpeg" class="rounded-3xl shadow-xl w-full border border-black/5">
-                <img src="https://i.imgur.com/rFUaAST.jpeg" class="rounded-3xl shadow-xl w-full border border-black/5">
-                <img src="https://i.imgur.com/smbiwp8.jpeg" class="rounded-3xl shadow-xl w-full border border-black/5">
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Hub -->
-    <section id="community" class="py-24 bg-[#050505]">
-        <div class="container mx-auto px-6 text-center mb-16 reveal">
-            <h2 class="text-4xl font-black uppercase tracking-tighter italic">Join the Journey</h2>
-        </div>
-        <div class="flex flex-wrap justify-center gap-6 reveal px-6">
-            <a href="https://www.tiktok.com/@just.duckit" target="_blank" class="glass w-20 h-20 md:w-28 md:h-28 rounded-3xl flex items-center justify-center text-3xl hover:bg-brand-accent/10 hover:text-brand-accent transition-all text-white border-white/5">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a href="https://x.com/ducksonx?s=11" target="_blank" class="glass w-20 h-20 md:w-28 md:h-28 rounded-3xl flex items-center justify-center text-3xl hover:bg-brand-accent/10 hover:text-brand-accent transition-all text-white border-white/5">
-                <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="https://www.instagram.com/duckxmeta" target="_blank" class="glass w-20 h-20 md:w-28 md:h-28 rounded-3xl flex items-center justify-center text-3xl hover:bg-brand-accent/10 hover:text-brand-accent transition-all text-white border-white/5">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/@JusttDuckit" target="_blank" class="glass w-20 h-20 md:w-28 md:h-28 rounded-3xl flex items-center justify-center text-3xl hover:bg-brand-accent/10 hover:text-brand-accent transition-all text-white border-white/5">
-                <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="https://discord.com/invite/e6b4RnXRkE" target="_blank" class="glass w-20 h-20 md:w-28 md:h-28 rounded-3xl flex items-center justify-center text-3xl hover:bg-brand-accent/10 hover:text-brand-accent transition-all text-white border-white/5">
-                <i class="fa-brands fa-discord"></i>
-            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-20 bg-black text-center relative overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-40 bg-brand-purpleSubtle/20 blur-[80px]"></div>
-        
         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-3xl font-black text-gold-gradient uppercase italic tracking-tighter mb-8">Decent Ducks</h2>
+            <h2 class="text-3xl font-black text-gold-gradient uppercase italic tracking-tighter mb-8">Decent Ducks Sanctuary</h2>
             
-            <div class="flex justify-center gap-10 items-center mb-12">
-                <div class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://i.imgur.com/K7CdYVS.jpeg" class="w-10 h-10 rounded-full border border-brand-accent/20" alt="Sanctuary V1">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-brand-accent">Sanctuary V1</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                    <img src="https://i.imgur.com/7BiW2OG.gif" class="w-10 h-10 rounded-full border border-brand-accent/20" alt="V2">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-brand-accent">Sanctuary V2</span>
-                </div>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="https://x.com/ducksonx?s=11" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-brand-accent transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/duckxmeta" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-brand-accent transition-all"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://discord.com/invite/e6b4RnXRkE" target="_blank" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:text-brand-accent transition-all"><i class="fa-brands fa-discord"></i></a>
             </div>
 
             <p class="text-[9px] font-bold tracking-[0.4em] opacity-30 uppercase text-white">&copy; 2026 DECENT DUCKS SANCTUARY MISSION</p>
@@ -508,7 +462,6 @@
 
         menuBtn.addEventListener('click', () => {
             menuOverlay.classList.toggle('active');
-            menuBtn.classList.toggle('active');
         });
 
         menuLinks.forEach(link => {
@@ -520,10 +473,10 @@
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                nav.classList.add('glass', 'py-3', 'border-b', 'border-white/5');
+                nav.classList.add('glass', 'py-3');
                 nav.classList.remove('py-5');
             } else {
-                nav.classList.remove('glass', 'py-3', 'border-b', 'border-white/5');
+                nav.classList.remove('glass', 'py-3');
                 nav.classList.add('py-5');
             }
         });
