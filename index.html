@@ -143,9 +143,9 @@
             <a href="#vision" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">The Vision</a>
             <a href="#legacy" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Legacy V1</a>
             <a href="#ownership" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Digital Ownership</a>
+            <a href="#donations" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Donate</a>
             <a href="#mint" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Mint V2</a>
             <a href="#virtual" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Virtual Sanctuary</a>
-            <a href="#donations" class="menu-link block text-4xl md:text-6xl font-black uppercase tracking-tighter hover:text-brand-accent transition-colors">Donate</a>
         </nav>
     </div>
 
@@ -260,6 +260,80 @@
                     <div>
                         <h4 class="font-black uppercase text-brand-accent text-sm tracking-widest mb-2">Direct Utility</h4>
                         <p class="text-gray-400 text-sm font-light">Holders get exclusive access to our virtual experiences, merch drops, and IRL sanctuary visits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Wallets Section -->
+    <section id="donations" class="py-32 bg-[#050505] relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block px-4 py-1 bg-brand-accent/20 rounded-full text-brand-accent text-[10px] font-bold uppercase tracking-widest mb-4">
+                    Support The Mission Directly
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter">Direct <span class="text-gradient">Donations</span></h2>
+                <p class="text-gray-400 text-sm mt-4 max-w-xl mx-auto font-light">
+                    Want to fund food, habitat constructions, and rescue missions directly? Copy any address below to send support straight to the sanctuary.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 reveal">
+                <!-- Solana Wallet -->
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between card-hover transition-all border-gradient relative group cursor-pointer" onclick="copyWallet('AKkgD4kg8bq7sPUXhqWLqNPBcvtXXhevx3TQCkuxpUQY', 'sol-status')">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-2xl font-black text-white italic tracking-tight">SOLANA</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-colors">
+                                <i class="fa-solid fa-copy"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-xs font-mono font-light break-all select-all select-none">
+                            AKkgD4kg8bq7sPUXhqWLqNPBcvtXXhevx3TQCkuxpUQY
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-[9px] uppercase font-bold tracking-widest opacity-40">Click to Copy</span>
+                        <span id="sol-status" class="text-[9px] uppercase font-bold tracking-widest text-brand-accentLight opacity-0 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+
+                <!-- ETH Wallet -->
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between card-hover transition-all border-gradient relative group cursor-pointer" onclick="copyWallet('0x30B52ee50E3C4176071E4fF6D010c28e54164788', 'eth-status')">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-2xl font-black text-white italic tracking-tight">ETHEREUM</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-colors">
+                                <i class="fa-solid fa-copy"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-xs font-mono font-light break-all select-all select-none">
+                            0x30B52ee50E3C4176071E4fF6D010c28e54164788
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-[9px] uppercase font-bold tracking-widest opacity-40">Click to Copy</span>
+                        <span id="eth-status" class="text-[9px] uppercase font-bold tracking-widest text-brand-accentLight opacity-0 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+
+                <!-- Doge Wallet -->
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between card-hover transition-all border-gradient relative group cursor-pointer" onclick="copyWallet('DRrGt6NPJWNbLiQArHZKEFqCwuN4ZjvBGQ', 'doge-status')">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-2xl font-black text-white italic tracking-tight">DOGECOIN</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-colors">
+                                <i class="fa-solid fa-copy"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-xs font-mono font-light break-all select-all select-none">
+                            DRrGt6NPJWNbLiQArHZKEFqCwuN4ZjvBGQ
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-[9px] uppercase font-bold tracking-widest opacity-40">Click to Copy</span>
+                        <span id="doge-status" class="text-[9px] uppercase font-bold tracking-widest text-brand-accentLight opacity-0 transition-opacity duration-300">Copied!</span>
                     </div>
                 </div>
             </div>
@@ -393,79 +467,6 @@
         </div>
     </section>
 
-    <!-- Donation Wallets Section -->
-    <section id="donations" class="py-32 bg-[#050505] relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-16 reveal">
-                <div class="inline-block px-4 py-1 bg-brand-accent/20 rounded-full text-brand-accent text-[10px] font-bold uppercase tracking-widest mb-4">
-                    Support The Mission Directly
-                </div>
-                <h2 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter">Direct <span class="text-gradient">Donations</span></h2>
-                <p class="text-gray-400 text-sm mt-4 max-w-xl mx-auto font-light">
-                    Want to fund food, habitat constructions, and rescue missions directly? Copy any address below to send support straight to the sanctuary.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 reveal">
-                <!-- Solana Wallet -->
-                <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between card-hover transition-all border-gradient relative group cursor-pointer" onclick="copyWallet('AKkgD4kg8bq7sPUXhqWLqNPBcvtXXhevx3TQCkuxpUQY', 'sol-status')">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-2xl font-black text-white italic tracking-tight">SOLANA</span>
-                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-colors">
-                                <i class="fa-solid fa-copy"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 text-xs font-mono font-light break-all select-all select-none">
-                            AKkgD4kg8bq7sPUXhqWLqNPBcvtXXhevx3TQCkuxpUQY
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="text-[9px] uppercase font-bold tracking-widest opacity-40">Click to Copy</span>
-                        <span id="sol-status" class="text-[9px] uppercase font-bold tracking-widest text-brand-accentLight opacity-0 transition-opacity duration-300">Copied!</span>
-                    </div>
-                </div>
-
-                <!-- ETH Wallet -->
-                <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between card-hover transition-all border-gradient relative group cursor-pointer" onclick="copyWallet('0x30B52ee50E3C4176071E4fF6D010c28e54164788', 'eth-status')">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-2xl font-black text-white italic tracking-tight">ETHEREUM</span>
-                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-colors">
-                                <i class="fa-solid fa-copy"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 text-xs font-mono font-light break-all select-all select-none">
-                            0x30B52ee50E3C4176071E4fF6D010c28e54164788
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="text-[9px] uppercase font-bold tracking-widest opacity-40">Click to Copy</span>
-                        <span id="eth-status" class="text-[9px] uppercase font-bold tracking-widest text-brand-accentLight opacity-0 transition-opacity duration-300">Copied!</span>
-                    </div>
-                </div>
-
-                <!-- Doge Wallet -->
-                <div class="glass p-8 rounded-[2.5rem] flex flex-col justify-between card-hover transition-all border-gradient relative group cursor-pointer" onclick="copyWallet('DRrGt6NPJWNbLiQArHZKEFqCwuN4ZjvBGQ', 'doge-status')">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-2xl font-black text-white italic tracking-tight">DOGECOIN</span>
-                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-colors">
-                                <i class="fa-solid fa-copy"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 text-xs font-mono font-light break-all select-all select-none">
-                            DRrGt6NPJWNbLiQArHZKEFqCwuN4ZjvBGQ
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="text-[9px] uppercase font-bold tracking-widest opacity-40">Click to Copy</span>
-                        <span id="doge-status" class="text-[9px] uppercase font-bold tracking-widest text-brand-accentLight opacity-0 transition-opacity duration-300">Copied!</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="py-20 bg-black text-center">
